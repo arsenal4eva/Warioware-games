@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bl3ggegakqx5j"]
+
+[ext_resource type="Script" uid="uid://oi8ehuqxtk2l" path="res://background.gd" id="1_i7s6n"]
+[ext_resource type="Texture2D" uid="uid://bgao85br8ohk0" path="res://background.png" id="1_oabld"]
+
+[node name="TitleScreen" type="Node2D" unique_id=513700432]
+script = ExtResource("1_i7s6n")
+
+[node name="Background" type="TextureRect" parent="." unique_id=548820990]
+offset_left = 1.0
+offset_right = 1151.0
+offset_bottom = 647.0
+texture = ExtResource("1_oabld")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=281542642]
+offset_left = 337.0
+offset_top = 41.0
+offset_right = 807.0
+offset_bottom = 110.0
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 50
+text = "The Wares of Wario"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1198680235]
+offset_left = 485.0
+offset_top = 262.0
+offset_right = 680.0
+offset_bottom = 363.0
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=236149577]
+layout_mode = 2
+text = "Start"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1120331835]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=1903533017]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
