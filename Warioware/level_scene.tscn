@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://d2lcb4vdcrpo2"]
 
-[ext_resource type="Texture2D" uid="uid://bgao85br8ohk0" path="res://background.png" id="1_4quuv"]
-[ext_resource type="Texture2D" uid="uid://df776mcyqqmt7" path="res://icon.svg" id="2_187gu"]
+[ext_resource type="Script" uid="uid://den6x1wwxfncc" path="res://level_scene.gd" id="1_3mivm"]
+[ext_resource type="Texture2D" uid="uid://cjcedg8cnl84r" path="res://background.png" id="1_4quuv"]
+[ext_resource type="Texture2D" uid="uid://db4s03odkayy2" path="res://superstar.png" id="2_187gu"]
 
 [node name="level_scene" type="Node2D" unique_id=1225227892]
+script = ExtResource("1_3mivm")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1546656256]
 offset_right = 1151.0

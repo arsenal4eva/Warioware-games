@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://bl3ggegakqx5j"]
 
 [ext_resource type="Script" uid="uid://oi8ehuqxtk2l" path="res://background.gd" id="1_i7s6n"]
-[ext_resource type="Texture2D" uid="uid://bgao85br8ohk0" path="res://background.png" id="1_oabld"]
+[ext_resource type="Texture2D" uid="uid://cjcedg8cnl84r" path="res://background.png" id="1_oabld"]
 
 [node name="TitleScreen" type="Node2D" unique_id=513700432]
 script = ExtResource("1_i7s6n")
 
 [node name="Background" type="TextureRect" parent="." unique_id=548820990]
 offset_left = 1.0
-offset_right = 1151.0
-offset_bottom = 647.0
+offset_top = -3.0
+offset_right = 1154.0
+offset_bottom = 652.0
 texture = ExtResource("1_oabld")
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=281542642]
