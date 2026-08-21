@@ -5,6 +5,6 @@
 [node name="ThemedTimer" type="Node2D" unique_id=509133502]
 script = ExtResource("1_jnd3y")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1592853849]
+[node name="timer" type="RichTextLabel" parent="." unique_id=1592853849]
 offset_right = 40.0
 offset_bottom = 40.0

@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://dmcdux3l1vyb2"]
 
 [ext_resource type="Texture2D" uid="uid://bamwe5ixjlogt" path="res://level_background.png" id="1_2n61g"]
+[ext_resource type="Script" uid="uid://b3w5o24dbin0i" path="res://minigame_1.gd" id="1_vlki2"]
 [ext_resource type="PackedScene" uid="uid://hxck3qp5gg2l" path="res://player.tscn" id="2_gi7k6"]
+[ext_resource type="Texture2D" uid="uid://db4s03odkayy2" path="res://superstar.png" id="3_0hvi2"]
+[ext_resource type="Script" uid="uid://b8ks2xfsw0id0" path="res://star.gd" id="3_s0dnv"]
+[ext_resource type="Script" uid="uid://28oxf80keft2" path="res://star_2.gd" id="5_vlki2"]
+[ext_resource type="Script" uid="uid://dg8csrxl6bdwn" path="res://star_3.gd" id="6_ighjx"]
+[ext_resource type="Script" uid="uid://c88qmoksribd0" path="res://star_4.gd" id="7_261h4"]
+[ext_resource type="Script" uid="uid://dny0obse1k2kn" path="res://star_5.gd" id="8_5v7aa"]
+[ext_resource type="PackedScene" uid="uid://bohinao0wla2e" path="res://themed_timer.tscn" id="10_ighjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdn2g"]
 size = Vector2(1151.5, 51.5)
@@ -22,20 +30,65 @@ size = Vector2(40, 40)
 size = Vector2(86.997406, 10.999527)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qx3"]
+size = Vector2(100, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mmn6"]
-size = Vector2(167.71965, 9.247444)
+size = Vector2(138.19038, 9.247444)
+
+[sub_resource type="Animation" id="Animation_0hvi2"]
+length = 1.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star/Star:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(524, 523), Vector2(524, 518)]
+}
+
+[sub_resource type="Animation" id="Animation_r6gmb"]
+resource_name = "floating"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star/Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(524, 523)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wh6qq"]
+_data = {
+&"RESET": SubResource("Animation_0hvi2"),
+&"floating": SubResource("Animation_r6gmb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdn2g"]
+radius = 11.045361
 
 [node name="minigame_1" type="Node2D" unique_id=1998901585]
+script = ExtResource("1_vlki2")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1099826202]
+[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=1099826202]
 repeat_size = Vector2(1000, 0)
 autoscroll = Vector2(100, 0)
 
-[node name="Background" type="TextureRect" parent="Parallax2D" unique_id=704601065]
+[node name="Background" type="TextureRect" parent="ScrollingBackground" unique_id=704601065]
 offset_right = 1153.0
 offset_bottom = 649.0
 texture = ExtResource("1_2n61g")
+
+[node name="Player" parent="." unique_id=1457617375 instance=ExtResource("2_gi7k6")]
+position = Vector2(90, 533)
 
 [node name="Platform1" type="StaticBody2D" parent="." unique_id=1556109259]
 position = Vector2(1, 0)
@@ -49,9 +102,6 @@ color = Color(1, 0.6666667, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=1175052502]
 position = Vector2(576.25, 621.75)
 shape = SubResource("RectangleShape2D_tdn2g")
-
-[node name="Player" parent="." unique_id=1457617375 instance=ExtResource("2_gi7k6")]
-position = Vector2(90, 533)
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1592471649]
 
@@ -122,13 +172,14 @@ shape = SubResource("RectangleShape2D_2yskh")
 [node name="Platform7" type="StaticBody2D" parent="." unique_id=1960088326]
 
 [node name="ColorRect" type="ColorRect" parent="Platform7" unique_id=1924562582]
-offset_left = 26.0
-offset_top = 308.0
-offset_right = 66.0
-offset_bottom = 348.0
+offset_left = 116.0
+offset_top = 311.0
+offset_right = 216.0
+offset_bottom = 317.0
 color = Color(1, 0.6666667, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7" unique_id=2016033030]
+position = Vector2(166, 314)
 shape = SubResource("RectangleShape2D_c0qx3")
 
 [node name="Platform8" type="StaticBody2D" parent="." unique_id=2007149510]
@@ -136,13 +187,125 @@ shape = SubResource("RectangleShape2D_c0qx3")
 [node name="ColorRect" type="ColorRect" parent="Platform8" unique_id=1184621653]
 offset_left = 310.0
 offset_top = 353.99997
-offset_right = 477.71317
+offset_right = 448.4265
 offset_bottom = 363.25638
 rotation = 0.45178896
 color = Color(1, 0.6666667, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform8" unique_id=236805956]
-position = Vector2(383.399, 394.70786)
+position = Vector2(370.12, 388.2532)
 rotation = 0.45245138
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_1mmn6")
+
+[node name="Star" type="Node2D" parent="." unique_id=191052140]
+script = ExtResource("3_s0dnv")
+
+[node name="Star" type="TextureRect" parent="Star" unique_id=1058365701]
+offset_left = 524.0
+offset_top = 523.0
+offset_right = 555.0
+offset_bottom = 556.0
+texture = ExtResource("3_0hvi2")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="Star" unique_id=609598364]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_wh6qq")
+
+[node name="Area2D" type="Area2D" parent="Star" unique_id=225115386]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Star/Area2D" unique_id=1816055316]
+position = Vector2(539, 540)
+shape = SubResource("CircleShape2D_tdn2g")
+
+[node name="Star2" type="Node2D" parent="." unique_id=1988664328]
+position = Vector2(25, 1)
+script = ExtResource("5_vlki2")
+
+[node name="Star" type="TextureRect" parent="Star2" unique_id=963919559]
+offset_left = 1093.0
+offset_top = 358.0
+offset_right = 1124.0
+offset_bottom = 391.0
+texture = ExtResource("3_0hvi2")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="Star2" unique_id=243430983]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_wh6qq")
+
+[node name="Area2D" type="Area2D" parent="Star2" unique_id=55357963]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Star2/Area2D" unique_id=1375859926]
+position = Vector2(1108, 375)
+shape = SubResource("CircleShape2D_tdn2g")
+
+[node name="Star3" type="Node2D" parent="." unique_id=345932940]
+script = ExtResource("6_ighjx")
+
+[node name="Star" type="TextureRect" parent="Star3" unique_id=1090178134]
+offset_left = 613.0
+offset_top = 296.0
+offset_right = 644.0
+offset_bottom = 329.0
+texture = ExtResource("3_0hvi2")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="Star3" unique_id=2054733383]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_wh6qq")
+
+[node name="Area2D" type="Area2D" parent="Star3" unique_id=801799077]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Star3/Area2D" unique_id=1526191691]
+position = Vector2(628, 314)
+shape = SubResource("CircleShape2D_tdn2g")
+
+[node name="Star4" type="Node2D" parent="." unique_id=37124570]
+script = ExtResource("7_261h4")
+
+[node name="Star" type="TextureRect" parent="Star4" unique_id=1614141766]
+offset_left = 149.0
+offset_top = 396.0
+offset_right = 180.0
+offset_bottom = 429.0
+texture = ExtResource("3_0hvi2")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="Star4" unique_id=2146013163]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_wh6qq")
+
+[node name="Area2D" type="Area2D" parent="Star4" unique_id=1074214958]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Star4/Area2D" unique_id=177794911]
+position = Vector2(164, 413)
+shape = SubResource("CircleShape2D_tdn2g")
+
+[node name="Star5" type="Node2D" parent="." unique_id=847620880]
+script = ExtResource("8_5v7aa")
+
+[node name="Star" type="TextureRect" parent="Star5" unique_id=1221323957]
+offset_left = 111.0
+offset_top = 244.0
+offset_right = 142.0
+offset_bottom = 277.0
+texture = ExtResource("3_0hvi2")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="Star5" unique_id=573977927]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_wh6qq")
+
+[node name="Area2D" type="Area2D" parent="Star5" unique_id=2112548803]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Star5/Area2D" unique_id=238010080]
+position = Vector2(126, 262)
+shape = SubResource("CircleShape2D_tdn2g")
+
+[node name="ThemedTimer" parent="." unique_id=509133502 instance=ExtResource("10_ighjx")]
+
+[node name="Timer2" type="RichTextLabel" parent="ThemedTimer" unique_id=197243764]
+offset_right = 40.0
+offset_bottom = 40.0

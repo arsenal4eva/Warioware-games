@@ -1,40 +1,41 @@
 [gd_scene format=3 uid="uid://d2lcb4vdcrpo2"]
 
-[ext_resource type="Script" uid="uid://den6x1wwxfncc" path="res://level_scene.gd" id="1_3mivm"]
 [ext_resource type="Texture2D" uid="uid://cjcedg8cnl84r" path="res://background.png" id="1_4quuv"]
+[ext_resource type="Script" uid="uid://den6x1wwxfncc" path="res://level_scene.gd" id="1_lwxgr"]
 [ext_resource type="Texture2D" uid="uid://db4s03odkayy2" path="res://superstar.png" id="2_187gu"]
+[ext_resource type="PackedScene" uid="uid://bcnio641u5tni" path="res://timer_screen.tscn" id="3_3mivm"]
 
-[node name="level_scene" type="Node2D" unique_id=1225227892]
-script = ExtResource("1_3mivm")
+[node name="LevelScene" type="Node2D" unique_id=1225227892]
+script = ExtResource("1_lwxgr")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1546656256]
 offset_right = 1151.0
 offset_bottom = 645.0
 texture = ExtResource("1_4quuv")
 
-[node name="GarlicContainer" type="HBoxContainer" parent="." unique_id=641363562]
+[node name="StarContainer" type="HBoxContainer" parent="." unique_id=641363562]
 offset_left = 239.0
 offset_top = 112.0
 offset_right = 895.0
 offset_bottom = 240.0
 
-[node name="Garlic" type="TextureRect" parent="GarlicContainer" unique_id=1954930773]
+[node name="Star" type="TextureRect" parent="StarContainer" unique_id=1954930773]
 layout_mode = 2
 texture = ExtResource("2_187gu")
 
-[node name="Garlic2" type="TextureRect" parent="GarlicContainer" unique_id=826144317]
+[node name="Star2" type="TextureRect" parent="StarContainer" unique_id=826144317]
 layout_mode = 2
 texture = ExtResource("2_187gu")
 
-[node name="Garlic3" type="TextureRect" parent="GarlicContainer" unique_id=401735570]
+[node name="Star3" type="TextureRect" parent="StarContainer" unique_id=401735570]
 layout_mode = 2
 texture = ExtResource("2_187gu")
 
-[node name="Garlic4" type="TextureRect" parent="GarlicContainer" unique_id=308733926]
+[node name="Star4" type="TextureRect" parent="StarContainer" unique_id=308733926]
 layout_mode = 2
 texture = ExtResource("2_187gu")
 
-[node name="Garlic5" type="TextureRect" parent="GarlicContainer" unique_id=1507478667]
+[node name="Star5" type="TextureRect" parent="StarContainer" unique_id=1507478667]
 layout_mode = 2
 texture = ExtResource("2_187gu")
 
@@ -46,10 +47,12 @@ offset_bottom = 377.0
 theme_override_font_sizes/normal_font_size = 42
 text = "Level #"
 
-[node name="Timer" type="RichTextLabel" parent="." unique_id=1331360725]
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1994820507]
 offset_left = 533.0
 offset_top = 374.0
 offset_right = 598.0
 offset_bottom = 436.0
 theme_override_font_sizes/normal_font_size = 42
 text = "0.0"
+
+[node name="TimerScreen" parent="." unique_id=1174518303 instance=ExtResource("3_3mivm")]

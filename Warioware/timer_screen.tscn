@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bcnio641u5tni"]
+
+[ext_resource type="Script" uid="uid://bfa5gmgshon8p" path="res://timer_screen.gd" id="1_k5vih"]
+[ext_resource type="Texture2D" uid="uid://db4s03odkayy2" path="res://superstar.png" id="2_mjy2p"]
+
+[node name="TimerScreen" type="Node2D" unique_id=1174518303]
+script = ExtResource("1_k5vih")
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1334420576]
+offset_left = 533.0
+offset_top = 374.0
+offset_right = 605.0
+offset_bottom = 436.0
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0"
+
+[node name="StarContainer" type="HBoxContainer" parent="." unique_id=1496239371]
+offset_left = 239.0
+offset_top = 112.0
+offset_right = 895.0
+offset_bottom = 240.0
+
+[node name="Star" type="TextureRect" parent="StarContainer" unique_id=1711734003]
+layout_mode = 2
+texture = ExtResource("2_mjy2p")
+
+[node name="Star2" type="TextureRect" parent="StarContainer" unique_id=463756250]
+layout_mode = 2
+texture = ExtResource("2_mjy2p")
+
+[node name="Star3" type="TextureRect" parent="StarContainer" unique_id=510723601]
+layout_mode = 2
+texture = ExtResource("2_mjy2p")
+
+[node name="Star4" type="TextureRect" parent="StarContainer" unique_id=690160189]
+layout_mode = 2
+texture = ExtResource("2_mjy2p")
+
+[node name="Star5" type="TextureRect" parent="StarContainer" unique_id=185742469]
+layout_mode = 2
+texture = ExtResource("2_mjy2p")
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=753534887]
+offset_left = 497.0
+offset_top = 318.0
+offset_right = 657.0
+offset_bottom = 377.0
+theme_override_font_sizes/normal_font_size = 42
+text = "Level #"
