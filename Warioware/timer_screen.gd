@@ -13,7 +13,7 @@ var time
 func _ready() -> void:
 	await Timer(5.0) # using the function created
 	
-	if Global.minigames_done < 3: # if you havent completed 3 minigames yet 
+	if Global.minigames_done < 3: # if you havent completed all the minigames yet 
 		Global.minigames_done = Global.minigames_done +1
 		get_tree().change_scene_to_file("res://minigame_" + str(Global.minigames_done) + ".tscn") # changes your scene by arranging this frankenstein path. 
 # Above, your script is being told to go to the next minigame. If the 
@@ -23,7 +23,7 @@ func _ready() -> void:
 # should be next. Make sure you name your minigame saves appropriately.
 
 	else:
-		get_tree().change_scene_to_file("res://title_screen.tscn") # changes your scene
+		get_tree().change_scene_to_file("res://done_screen.tscn") # changes your scene
 	
 
 func _process(delta: float) -> void: # runs EVERY FRAME
@@ -57,7 +57,7 @@ func Timer(start_time: float): # making a new function for timer countdown!
 	
 	time = start_time # make the timer, which is reflected through the timer text, start at your desired number
 	
-	while time > 0.0: # run if timer hasnt reached 0
+	while time > 0.0 and is_instance_valid(self) and is_inside_tree(): # run if timer hasnt reached 0
 		await wait(0.1) # asks script to wait on this function. the 'wait' name for the function does nothing here, as await is just telling the scrpit to wait for the function to complete before progressing
 		time -= 0.1 # remove 0.1
 		# progressively get the value smaller and smaller
@@ -66,4 +66,6 @@ func Timer(start_time: float): # making a new function for timer countdown!
 	return
 
 func wait(seconds: float) -> void: # write this simple function out for wait!
+	if not is_instance_valid(self) or not is_inside_tree():
+		return
 	await get_tree().create_timer(seconds).timeout # makes u wait, dw abt this being complex '''

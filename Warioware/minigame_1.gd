@@ -14,9 +14,13 @@ func _ready() -> void:
 		# tell the script to wait for a signal, or for when a function finshes
 
 
+	for star in [$Star, $Star2, $Star3, $Star4, $Star5]:
+		star.garlic_collected.connect(garlic_collect)
+
 	await themed_timer.Timer(10.0) #accessing a function from this node
 	#after this is compeleted...
-	timer_end = true # now we're saying "oh ye you ran out of time"
+	if is_instance_valid(self) and is_inside_tree():
+		timer_end = true # now we're saying "oh ye you ran out of time"
 
 func _process(delta: float) -> void: # running every frame brochacho
 	

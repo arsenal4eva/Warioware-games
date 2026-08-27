@@ -1,10 +1,10 @@
 extends Node2D
-@onready var star_container: HBoxContainer = $StarContainer
-@onready var star: TextureRect = $StarContainer/Star
-@onready var star_2: TextureRect = $StarContainer/Star2
-@onready var star_3: TextureRect = $StarContainer/Star3
-@onready var star_4: TextureRect = $StarContainer/Star4
-@onready var star_5: TextureRect = $StarContainer/Star5
+@onready var garlic_container: HBoxContainer = $StarContainer
+@onready var garlic: TextureRect = $StarContainer/Star
+@onready var garlic_2: TextureRect = $StarContainer/Star2
+@onready var garlic_3: TextureRect = $StarContainer/Star3
+@onready var garlic_4: TextureRect = $StarContainer/Star4
+@onready var garlic_5: TextureRect = $StarContainer/Star5
 @onready var level: RichTextLabel = $Level
 @onready var timer: RichTextLabel = $Timer
 
@@ -32,21 +32,21 @@ func _process(delta: float) -> void: # runs EVERY FRAME
 #lives visually so later you can always find alternative code. Now, dw abt it.
 
 		4:
-			star.hide()
+			garlic.hide()
 		3:
-			star.hide()
-			star_2.hide()
+			garlic.hide()
+			garlic_2.hide()
 		2:
-			star.hide()
-			star_2.hide()
-			star_3.hide()
+			garlic.hide()
+			garlic_2.hide()
+			garlic_3.hide()
 		1:
-			star.hide()
-			star_2.hide()
-			star_3.hide()
-			star_4.hide()
+			garlic.hide()
+			garlic_2.hide()
+			garlic_3.hide()
+			garlic_4.hide()
 		0:
-			star_container.hide() # just hides everything
+			garlic_container.hide() # just hides everything
 	
 	timer.text = str(time) # make ths text reflect the value of the time variable. this makes names easier. the str() converts the int to a String
 	level.text = "Level " + str(Global.minigames_done) # this tells you want minigame you're on using concatenation (google the word yo)
@@ -57,7 +57,7 @@ func Timer(start_time: float): # making a new function for timer countdown!
 	
 	time = start_time # make the timer, which is reflected through the timer text, start at your desired number
 	
-	while time > 0.0: # run if timer hasnt reached 0
+	while time > 0.0 and is_instance_valid(self) and is_inside_tree(): # run if timer hasnt reached 0
 		await wait(0.1) # asks script to wait on this function. the 'wait' name for the function does nothing here, as await is just telling the scrpit to wait for the function to complete before progressing
 		time -= 0.1 # remove 0.1
 		# progressively get the value smaller and smaller
@@ -66,4 +66,6 @@ func Timer(start_time: float): # making a new function for timer countdown!
 	return
 
 func wait(seconds: float) -> void: # write this simple function out for wait!
+	if not is_instance_valid(self) or not is_inside_tree():
+		return
 	await get_tree().create_timer(seconds).timeout # makes u wait, dw abt this being complex '''

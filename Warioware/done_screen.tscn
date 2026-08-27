@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bpf3sr3blwdap"]
+
+[ext_resource type="Texture2D" uid="uid://cjcedg8cnl84r" path="res://background.png" id="1_mioa6"]
+
+[node name="done_screen" type="Node2D" unique_id=7901067]
+
+[node name="bg" type="TextureRect" parent="." unique_id=1685193442]
+offset_top = -2.0
+offset_right = 1154.0
+offset_bottom = 651.0
+texture = ExtResource("1_mioa6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1575482068]
+offset_left = 335.0
+offset_top = 224.0
+offset_right = 808.0
+offset_bottom = 364.0
+theme_override_font_sizes/normal_font_size = 100
+text = "YOU WIN!
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1692824989]
+offset_left = 496.0
+offset_top = 397.0
+offset_right = 679.0
+offset_bottom = 422.0
+text = "Game by arsenal4eva"

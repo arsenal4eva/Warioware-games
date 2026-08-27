@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c5bcp4y8xya31"]
+
+[ext_resource type="Script" uid="uid://d1ymej05tfewy" path="res://minigame_3.gd" id="1_cdg48"]
+[ext_resource type="Texture2D" uid="uid://bamwe5ixjlogt" path="res://level_background.png" id="1_gqi5c"]
+[ext_resource type="Texture2D" uid="uid://csg734fepk0xv" path="res://spikes.png" id="2_5xr8p"]
+[ext_resource type="PackedScene" uid="uid://hxck3qp5gg2l" path="res://player.tscn" id="3_1i1uu"]
+[ext_resource type="Script" uid="uid://beip1iijvld2x" path="res://spike_walls.gd" id="4_0abbc"]
+[ext_resource type="PackedScene" uid="uid://bohinao0wla2e" path="res://themed_timer.tscn" id="6_1i1uu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdn2g"]
+size = Vector2(1152, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ddxe"]
+size = Vector2(33, 616)
+
+[node name="Minigame_3" type="Node2D" unique_id=1897858824]
+script = ExtResource("1_cdg48")
+
+[node name="bg" type="TextureRect" parent="." unique_id=1993515789]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_gqi5c")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=2051102334]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=960961738]
+position = Vector2(576, 632)
+shape = SubResource("RectangleShape2D_tdn2g")
+
+[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=2019650549]
+offset_top = 616.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Player" parent="." unique_id=1457617375 instance=ExtResource("3_1i1uu")]
+position = Vector2(139, 577)
+
+[node name="SpikeWalls" type="Node2D" parent="." unique_id=724173333]
+script = ExtResource("4_0abbc")
+
+[node name="Spike" type="TextureRect" parent="SpikeWalls" unique_id=1053461470]
+offset_right = 106.0
+offset_bottom = 663.0
+texture = ExtResource("2_5xr8p")
+expand_mode = 1
+
+[node name="Area2D" type="Area2D" parent="SpikeWalls" unique_id=789930997]
+
+[node name="SpikesCollision" type="CollisionShape2D" parent="SpikeWalls/Area2D" unique_id=234750258]
+position = Vector2(16.5, 308)
+shape = SubResource("RectangleShape2D_2ddxe")
+
+[node name="ThemedTimer" parent="." unique_id=509133502 instance=ExtResource("6_1i1uu")]
+position = Vector2(343, 412)
+
+[node name="Timer2" type="RichTextLabel" parent="ThemedTimer" unique_id=1172834347]
+offset_left = 615.0
+offset_top = -408.0
+offset_right = 768.0
+offset_bottom = -311.0
+theme_override_font_sizes/normal_font_size = 45
