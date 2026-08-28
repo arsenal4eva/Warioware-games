@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dwk0pomhnjdev"]
+
+[ext_resource type="Texture2D" uid="uid://bxfvaody0xu0x" path="res://lose.png" id="1_rtc1j"]
+
+[node name="Lose" type="Node2D" unique_id=1594354882]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1137141596]
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("1_rtc1j")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1338773326]
+offset_left = 2.0
+offset_top = 198.0
+offset_right = 525.0
+offset_bottom = 336.0
+theme_override_font_sizes/normal_font_size = 100
+text = "I've lost ..."

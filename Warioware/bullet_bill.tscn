@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7hti5fej34nu"]
+
+[ext_resource type="Script" uid="uid://bmjlf5658wcs3" path="res://bullet_bill.gd" id="1_hdn6r"]
+[ext_resource type="Texture2D" uid="uid://c6ux5lktbl4gf" path="res://bulletbill.png" id="2_lfr4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lcf7"]
+size = Vector2(151, 83.5)
+
+[node name="BulletBill" type="StaticBody2D" unique_id=179536772]
+script = ExtResource("1_hdn6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315666654]
+position = Vector2(609, 312)
+shape = SubResource("RectangleShape2D_3lcf7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=675676639]
+position = Vector2(606, 306)
+scale = Vector2(0.5996096, 0.52929693)
+texture = ExtResource("2_lfr4x")
