@@ -17,6 +17,17 @@ Try not to get pushed into the spikes by the bullet bill for 30s
 <img width="638" height="343" alt="image" src="https://github.com/user-attachments/assets/8322d8e5-ec53-488f-b53b-3b8b278b26eb" />
 
 
+#Access the game at https://arsenal4eva.itch.io/warioware-games
+
+
+
+#Run it locally
+1. Download the .zip file from this repo
+2. Unzip the files into a normal folder.
+3. Do not double-click index.html (Modern browsers block this for security, resulting in a black screen.)
+4. Run a Local Server.
+     Open a terminal in the folder and run python -m http.server (for Godot 3) or use the header script from earlier (for Godot 4).
+
 Some game art was self drawn using pixilart.com
 
 
